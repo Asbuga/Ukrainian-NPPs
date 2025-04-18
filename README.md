@@ -37,45 +37,6 @@ available government sources.
 
 🧩 Modular structure and reusable components
 
-
-## 🚀 Quickstart
-
-Requires Poetry and Jupyter
-
-```bash
-# Clone the repo
-git clone https://github.com/yourname/ukrainian-npp-dashboard.git
-cd ukrainian-npp-dashboard
-
-# Install dependencies and activate virtual environment
-poetry install
-poetry shell
-```
-# Run the notebook
-
-```bash
-jupyter notebook
-```
-
-## 🧠 Project Structure
-
-```bash
-.
-├── src/                 
-│   └── client.py       # API client module
-├── notebooks/
-│   └── analysis.ipynb  # Main notebook (interactive dashboard)
-├── tests/              # Unit tests for modules
-├── pyproject.toml      # Poetry config
-└── README.md
-```
-
-## 🧪 Testing
-
-```bash
-poetry run pytest
-```
-
 ## 📈 Use Case
 
 This notebook allows researchers and developers to explore environmental metrics  
@@ -91,6 +52,45 @@ such as:
 
 * Quarterly and annual release indexes
 
+## 🚀 Quickstart
+
+Requires Poetry and Jupyter
+
+```bash
+# Clone the repo
+git clone https://github.com/Asbuga/Ukrainian-NPPs.git
+cd Ukrainian-NPPs
+
+# Install dependencies and activate virtual environment
+poetry install
+poetry shell
+```
+
+## 🧠 Project Structure
+
+```bash
+.
+├── src/                 
+│   └── client.py       # API client module
+├── notebooks/
+│   └── analysis.ipynb  # Main notebook (interactive dashboard)
+├── tests/              # Unit tests for modules
+├── pyproject.toml      # Poetry config
+└── README.md
+```
+
+# Run the notebook
+
+```bash
+jupyter notebook
+```
+
+## 🧪 Testing
+
+```bash
+poetry run pytest
+```
+
 ## ⚠️ License & Data Usage
 
 All datasets are sourced from data.gov.ua and distributed under the Creative  
@@ -98,7 +98,8 @@ Commons Attribution 4.0 License (CC BY 4.0).
 Make sure to attribute the original source if you reuse the data.  
 
 ## 👨‍💻 Author
-Andrii Buha – Python Backend Developer  
-🔧 Django · FastAPI · Data Processing  
-📬 LinkedIn  
-💻 GitHub  
+
+Andrii Buha – Python Backend Developer | Django & FastAPI | Data Processing 
+
+📬 [LinkedIn](https://www.linkedin.com/in/andrii-buha/)  
+💻 [GitHub](https://github.com/Asbuga)  
