@@ -1,0 +1,43 @@
+services:
+
+  db:
+    container_name: db
+    image: postgres
+    env_file:
+      - db.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+    command: ["postgres"]
+  
+  app:
+    container_name: app
+    image: app
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    command: ["sh", "-c", "sleep 10 && poetry run python -m app.main"]
+    environment:
+      ENVIRONMENT: "production"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    
+  nginx:
+    container_name: nginx
+    image: nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+  
+volumes:
+  postgres_data:

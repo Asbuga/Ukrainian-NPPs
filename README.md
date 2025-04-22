@@ -66,6 +66,19 @@ poetry install
 poetry shell
 ```
 
+## Envirement
+
+```bash
+-
+```
+
+## Docker
+
+```bash
+docker compose -f docker/docker-compose.yaml build
+docker compose -f docker/docker-compose.yaml up
+```
+
 ## 🧠 Project Structure
 
 ```bash
