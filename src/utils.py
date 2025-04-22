@@ -27,7 +27,7 @@ def get_date(year: int, quarter: int) -> str:
 def format_label(label: str) -> str:
     """
     Formats a label by replacing underscores with spaces,
-    removing extra spaces, and converting the first letters of words to 
+    removing extra spaces, and converting the first letters of words to
     uppercase.
 
     Args:
@@ -38,4 +38,3 @@ def format_label(label: str) -> str:
     """
     # Заміна підкреслень на пробіли, видалення зайвих пробілів та перетворення на title case
     return label.replace("_", " ").replace("  ", " ").strip().title()
-    return formatted_label

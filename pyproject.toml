@@ -7,20 +7,39 @@ authors = [
 ]
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = [
-    "requests (>=2.32.3,<3.0.0)",
-    "pandas (>=2.2.3,<3.0.0)",
-    "openpyxl (>=3.1.5,<4.0.0)",
-    "plotly (>=6.0.1,<7.0.0)",
-    "notebook (>=7.4.0,<8.0.0)",
-    "pytest (>=8.3.5,<9.0.0)"
-]
+
+
+[tool.poetry.dependencies]
+requests = ">=2.32.3,<3.0.0"
+pandas = ">=2.2.3,<3.0.0"
+openpyxl = ">=3.1.5,<4.0.0"
+plotly = ">=6.0.1,<7.0.0"
+notebook = ">=7.4.0,<8.0.0"
 
 
 [tool.poetry]
 packages = [
     { include = "src" }
 ]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.3.5,<9.0.0"
+ruff = "^0.11.6"
+black = {extras = ["jupyter"], version = "^25.1.0"}
+pre-commit = "^4.2.0"
+
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+select = ["E", "F", "B", "I", "UP"]
+ignore = ["E501"]
 
 
 [build-system]

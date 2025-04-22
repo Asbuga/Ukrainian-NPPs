@@ -46,7 +46,6 @@ class TestDataGovUAClient:
         assert client.metadata == self.mock_metadata_response
         assert client.resources == self.mock_metadata_response["result"]["resources"]
 
-
     @patch("requests.get")
     def test_fetch_metadata_http_error(self, mock_get):
         mock_get.return_value = MagicMock()
@@ -90,7 +89,7 @@ class TestDataGovUAClient:
         mock_response.content = buffer.read()
         mock_response.raise_for_status.return_value = None
         mock_get.return_value = mock_response
-        
+
         # Test the function
         client = DataGovUAClient(self.dataset_id)
         result_df = client.load_dataframe(self.resource_url)
