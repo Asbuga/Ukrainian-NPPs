@@ -11,29 +11,33 @@ on:
         - dev
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.12'
-        cache: 'poetry'
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+          cache: 'poetry'
+       
+      - name: Install Poetry
+        uses: abatilo/actions-poetry@v4
 
-    - name: Install Poetry
-      run: |
-        curl -sSL https://install.python-poetry.org | python3 -
-        export PATH="$HOME/.local/bin:$PATH"
-        poetry --version
+      - name: Setup a local virtual environment (if no poetry.toml file)
+        run: |
+          poetry config virtualenvs.create true --local
+          poetry config virtualenvs.in-project true --local
 
-    - name: Install dependencies
-      run: |
-        poetry install
+      - uses: actions/cache@v3
+        name: Define a cache for the virtual environment based on the dependencies lock file
+        with:
+          path: ./.venv
+          key: venv-${{ hashFiles('poetry.lock') }}
 
-    - name: Run tests
-      run: |
-        poetry run pytest --maxfail=1 --disable-warnings -q
+      - name: Install the project dependencies
+        run: poetry install
+
+      - name: Run the automated tests (for example)
+        run: poetry run pytest --maxfail=1 --disable-warnings -q
