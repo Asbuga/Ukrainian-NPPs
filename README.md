@@ -1,5 +1,10 @@
 # 📊 Ukrainian NPPs: Open Data Analysis
 
+![Python](https://img.shields.io/badge/python-3.10-blue)
+![Open Data](https://img.shields.io/badge/Open--Data-%F0%9F%93%9C-green)
+![Nuclear Energy](https://img.shields.io/badge/Nuclear-Energy-yellow)
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+
 ## Table of Contents
 
 - [About](#about)
@@ -64,7 +69,7 @@ By offering an interface (API and visuals in the future), this tool can help:
 
 ## Examples
 
-. . .
+![plot-radioactive-release](img\plot-radioactive-release-all-stations.png)
 
 ## 📈 Focus  
 
