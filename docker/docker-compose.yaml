@@ -3,8 +3,7 @@ services:
   db:
     container_name: db
     image: postgres
-    env_file:
-      - db.env
+    env_file: ../config/db.env
     ports:
       - "5432:5432"
     volumes:
@@ -22,8 +21,6 @@ services:
       context: ../
       dockerfile: docker/Dockerfile
     command: ["sh", "-c", "sleep 10 && poetry run python -m app.main"]
-    environment:
-      ENVIRONMENT: "production"
     volumes:
       - .:/app
     depends_on:

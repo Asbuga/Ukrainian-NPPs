@@ -1,4 +1,24 @@
-# 📊 Ukrainian NPPs: Open Data Analysis 
+# 📊 Ukrainian NPPs: Open Data Analysis
+
+## Table of Contents
+
+- [About](#about)
+- [Focus](#-focus)
+- [Technologies](#-technologies)  
+- [Data Source](#-data-source)
+- [Key Features](#-key-features)
+- [Use Case](#-use-case)
+- [Quickstart](#-quickstart)
+- [Run the notebook](#-run-the-notebook)
+- [Envirement](#envirement)
+- [Docker](#-docker)
+- [Project Structure](#-project-structure)
+- [Testing](#-testing)
+- [License & Data Usage](#️-license--data-usage)
+- [Author](#-author)
+- [Development Plans](#️-development-plans)
+
+## About
 
 This project explores open datasets on radioactive emissions and discharges from  
 nuclear power plants (NPPs) in Ukraine. Using Python, Pandas, and Plotly, we  
@@ -9,15 +29,31 @@ The goal is to better understand trends in emission levels and present the data
 in an accessible, interactive format. All data is retrieved from publicly  
 available government sources.
 
-🧪 **Technologies:** Python, Poetry, Pandas, Plotly, Jupyter Notebook, Pytest
+## Examples
 
-📈 **Focus:** Data analysis, API integration, interactive visualizations 
+. . .
 
-📂 **Data Source:** [Open data portal][1]
+## 📈 Focus  
 
-📦 **Dataset Page:** [Ecological and radiation situation in the area of ​​nuclear power plants][2]
+Data analysis, API integration, interactive visualizations  
 
-🔌 **API docs:** [How to retrieve a dataset (API)?][3]
+## 🧪 Technologies  
+
+- **Backend**: Python, FastAPI, Uvicorn, Nginx
+- **Database**: PostgreSQL, SQLAlchemy  
+- **Data Analysis**: Pandas, Plotly  
+- **Development Tools**: Poetry, Docker, Docker Compose, Ruff, Black  
+- **Testing**: Unittest, Pytest  
+- **Environment Management**: python-dotenv  
+- **Notebooks**: Jupyter Notebook  
+
+## 📂 Data Source
+
+- [Open data portal][1]
+
+- [Ecological and radiation situation in the area of ​​nuclear power plants][2]
+
+- [How to retrieve a dataset (API)?][3]
 
 [1]: https://data.gov.ua/en/
 
@@ -27,82 +63,231 @@ available government sources.
 
 ## 🔍 Key Features
 
-🛰️ Fetch real-time datasets 
+- Fetch real-time datasets
 
-📥 Process Excel reports into structured DataFrames
+- Process Excel reports into structured DataFrames
 
-📊 Build interactive, filterable visualizations (Plotly)
+- Build interactive, filterable visualizations (Plotly)
 
-📈 Analyze radioactive emissions, discharges, and thresholds
+- Analyze radioactive emissions, discharges, and thresholds
 
-🧩 Modular structure and reusable components
+- Modular structure and reusable components
 
 ## 📈 Use Case
 
-This notebook allows researchers and developers to explore environmental metrics  
+This project allows researchers and developers to explore environmental metrics  
 such as:
 
-* Inert radioactive gas emissions (IRG)
+- Inert radioactive gas emissions (IRG)
 
-* Iodine radionuclides index
+- Iodine radionuclides index
 
-* Long-living isotopes
+- Long-living isotopes
 
-* Cs-137 and Co-60 emissions/discharges
+- Cs-137 and Co-60 emissions/discharges
 
-* Quarterly and annual release indexes
+- Quarterly and annual release indexes
 
 ## 🚀 Quickstart
 
-Requires Poetry and Jupyter
+Follow these steps to set up and run the project:
 
-```bash
-# Clone the repo
-git clone https://github.com/Asbuga/Ukrainian-NPPs.git
-cd Ukrainian-NPPs
+### Prerequisites  
 
-# Install dependencies and activate virtual environment
-poetry install
-poetry shell
-```
+- Python 3.12+
+- Poetry installed ([Poetry Documentation](https://python-poetry.org/docs/))
+
+### Steps  
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/Asbuga/Ukrainian-NPPs.git
+    cd Ukrainian-NPPs
+    ```
+
+2. Install dependencies and activate the virtual environment:
+
+    ```bash
+    poetry install
+    ```
+
+3. Activate your environment with poetry in Bash:
+
+    ```bash
+    eval $(poetry env activate)
+    ```
+
+    or PowerShell:
+
+    ```powershell
+    Invoke-Expression (poetry env activate)
+    ```
+
+4. Run the application to verify everything is working:  
+
+    ```bash  
+    poetry run python app/main.py
+    ```
+
+Now you're ready to explore the project!
+
+## 📓 Run the notebook
+
+To analyze data or visualize results, you can use Jupyter Notebook. Follow these  
+steps:
+
+1. Install dependencies and activate the virtual [environment](#-quickstart):
+
+   ```bash
+   poetry install
+   eval $(poetry env activate)
+   ```
+
+2. Run Jupyter Notebook:  
+
+    ```bash
+    jupyter notebook
+    ```
+
+Now you can explore and analyze the data interactively!
 
 ## Envirement
 
-```bash
--
+The project uses environment variables to configure the application. Below is a  
+list of required variables and their purpose.
+
+### Required Variables
+
+- `DATABASE_URL`: Connection string for the PostgreSQL database.
+- `SECRET_KEY`: Secret key for application security.
+- `DEBUG`: Enable or disable debug mode (`True` or `False`).
+
+### Example `.env` File  
+
+Create a `.env` file in the `config/` directory with the following content:
+
+```env
+DATABASE_URL=postgresql://user:password@localhost:5432/ukrainian_npps
+SECRET_KEY=your_secret_key
+DEBUG=True
 ```
 
-## Docker
+**Loading Environment Variables**  
+The application automatically loads environment variables from the .env file  
+using python-dotenv. Ensure the .env file is correctly configured before running  
+the application.
 
-```bash
-docker compose -f docker/docker-compose.yaml build
-docker compose -f docker/docker-compose.yaml up
-```
+## 🐳 Docker
+
+The project can be easily run in Docker containers. Follow these steps to build  
+and start the application:
+
+### Steps  
+
+1. Build the Docker images:
+
+    ```bash
+    docker compose -f docker/docker-compose.yaml build
+    ```
+
+2. Start the services:
+
+    ```bash
+    docker compose -f docker/docker-compose.yaml up
+    ```
+
+    This will start  the following services:
+
+    - **PostgreSQL**: The database service
+    - **FastAPI Application**: The backend application
+    - **Nginx**: The reverse proxy server (if configured)
+
+3. Stop the services: To stop and remove the containers, run:
+
+    ```bash
+    docker compose -f docker/docker-compose.yaml down
+    ```
+
+4. View logs: To view logs for a specific container, use:
+
+    ```bash
+    docker logs <container_name>
+    ```
+
+**Notes**  
+Ensure Docker and Docker Compose are installed on your system.
+The docker-compose.yaml file is located in the docker directory.
+Environment variables for the database and application are configured in the  
+config directory.
+Now you can run the project in an isolated Docker environment!
 
 ## 🧠 Project Structure
 
 ```bash
 .
-├── src/                 
-│   └── client.py       # API client module
-├── notebooks/
-│   └── analysis.ipynb  # Main notebook (interactive dashboard)
-├── tests/              # Unit tests for modules
-├── pyproject.toml      # Poetry config
-└── README.md
-```
-
-# Run the notebook
-
-```bash
-jupyter notebook
+├── .github/                     # GitHub Actions configuration for CI/CD
+│   └── workflows/
+│       └── ci.yml               # Script for automating tests and checks
+│
+├── app/                         # Main application code
+│   ├── main.py                  # Entry point for running the application
+│   └── core/                    # Core modules of the application
+│       ├── app.py               # FastAPI configuration
+│       ├── db.py                # Database logic
+│       ├── schemas.py           # Data schemas (Pydantic)
+│       ├── users.py             # User-related logic
+│
+├── config/                      # Configuration files
+│   ├── .env                     # Environment variables for the application
+│   └── db.env                   # Environment variables for the database
+│
+├── docker/                      # Docker files for containerization
+│   ├── docker-compose.yaml      # Docker Compose configuration
+│   └── Dockerfile               # Instructions for building the Docker image
+│
+├── notebook/                    # Jupyter Notebook for data analysis
+│   ├── research.ipynb           # Main notebook for research
+│
+├── src/                         # Auxiliary modules
+│   ├── client.py                # API client for external services
+│   ├── utils.py                 # Utility functions
+│
+├── tests/                       # Tests for the application
+│   ├── integration/             # Integration tests
+│       ├── test_client.py       # Tests for the API client
+│       ├── test_data_format.py  # Tests for data formatting
+│   └── unit/                    # Unit tests
+│
+├── .gitignore                   # Files and folders ignored by Git
+├── .pre-commit-config.yaml      # Pre-commit hooks configuration
+├── poetry.lock                  # Project dependencies (generated by Poetry)
+├── pyproject.toml               # Project configuration
+├── LICENSE                      # Project license
+└── README.md                    # Project documentation
 ```
 
 ## 🧪 Testing
 
-```bash
-poetry run pytest
-```
+To ensure the project is working correctly, you can run the test suite. Follow  
+these steps:
+
+1. Activate the virtual [environment](#-quickstart).
+
+2. Run the tests using pytest:
+
+    ```bash
+    poetry run pytest
+    ```
+
+    For a more detailed output, use the verbose mode:
+
+    ```bash
+    poetry run pytest -v
+    ```
+
+This will execute all unit and integration tests and provide a summary of the  
+results.
 
 ## ⚠️ License & Data Usage
 
@@ -112,7 +297,12 @@ Make sure to attribute the original source if you reuse the data.
 
 ## 👨‍💻 Author
 
-Andrii Buha – Python Backend Developer | Django & FastAPI | Data Processing 
+**Andrii Buha**  
+Python Backend Developer | Django & FastAPI | Data Processing  
 
 📬 [LinkedIn](https://www.linkedin.com/in/andrii-buha/)  
 💻 [GitHub](https://github.com/Asbuga)  
+
+## 🛠️ Development plans  
+
+- API  
