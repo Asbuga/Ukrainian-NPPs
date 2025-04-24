@@ -3,8 +3,9 @@
 ## Table of Contents
 
 - [About](#about)
+- [Examples](#examples)
 - [Focus](#-focus)
-- [Technologies](#-technologies)  
+- [Technologies | Stack](#-technologies--stack)  
 - [Data Source](#-data-source)
 - [Key Features](#-key-features)
 - [Use Case](#-use-case)
@@ -15,6 +16,7 @@
 - [Project Structure](#-project-structure)
 - [Testing](#-testing)
 - [License & Data Usage](#️-license--data-usage)
+- [What I Learned / Built Here](#-what-i-learned--built-here)
 - [Author](#-author)
 - [Development Plans](#️-development-plans)
 
@@ -29,6 +31,37 @@ The goal is to better understand trends in emission levels and present the data
 in an accessible, interactive format. All data is retrieved from publicly  
 available government sources.
 
+### 👨‍💻 My Role
+
+This project was created as a part of my learning path and personal interest in  
+open data and energy infrastructure in Ukraine.  
+My main responsibilities and skills demonstrated here include:
+
+- 🔧 Backend Development: Data parsing, cleaning, transformation using Python  
+& Pandas
+- 🔌 API Design (in progress): RESTful endpoints for accessing processed data
+- 📊 Data Analysis: Exploratory data analysis of NPP metrics, preparing it for  
+visualization
+- 🧱 Project Structure: Organizing code for clarity, scalability, and future  
+API integration
+
+### 💡 Why This Project Matters
+
+Ukraine's energy sector, especially nuclear energy, is vital and sensitive.  
+However, public data on its status is often fragmented or not easily accessible.
+
+This project makes Ukrainian NPP (Nuclear Power Plant) data:
+
+- 📂 **Accessible** — parsed and structured from open government sources
+- 🔍 **Usable** — cleaned and pre-processed for analysis
+- 🔁 **Reusable** — exposes data for other developers, analysts, or watchdogs
+
+By offering an interface (API and visuals in the future), this tool can help:
+
+- Analysts monitor energy safety and trends
+- NGOs use this data for transparency reports
+- Developers integrate it into educational or civic tech tools
+
 ## Examples
 
 . . .
@@ -37,7 +70,7 @@ available government sources.
 
 Data analysis, API integration, interactive visualizations  
 
-## 🧪 Technologies  
+## 🧪 Technologies | Stack
 
 - **Backend**: Python, FastAPI, Uvicorn, Nginx
 - **Database**: PostgreSQL, SQLAlchemy  
@@ -295,14 +328,27 @@ All datasets are sourced from data.gov.ua and distributed under the Creative
 Commons Attribution 4.0 License (CC BY 4.0).  
 Make sure to attribute the original source if you reuse the data.  
 
+## 📚 What I Learned / Built Here
+
+- Processing open government data: collection, cleaning, transformation
+- Working with tabular sources (CSV, XLSX) using Pandas
+- Developing a basic architecture for a REST API (FastAPI, in development)
+- Building graphs/visualizations using Plotly
+- Organizing the project structure for scaling
+
 ## 👨‍💻 Author
 
 **Andrii Buha**  
 Python Backend Developer | Django & FastAPI | Data Processing  
+
+If you're interested in collaboration, feedback, or hiring — feel free to  
+reach out:
 
 📬 [LinkedIn](https://www.linkedin.com/in/andrii-buha/)  
 💻 [GitHub](https://github.com/Asbuga)  
 
 ## 🛠️ Development plans  
 
-- API  
+- [ ] REST API
+- [ ] Tests  
+- [ ] Deploy  
