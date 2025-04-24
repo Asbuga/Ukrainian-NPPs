@@ -1,5 +1,6 @@
 import uuid
 
+from db import User, get_user_db
 from fastapi import Depends, Request
 from fastapi_users import BaseUserManager, FastAPIUsers, UUIDIDMixin, models
 from fastapi_users.authentication import (
@@ -8,8 +9,6 @@ from fastapi_users.authentication import (
     JWTStrategy,
 )
 from fastapi_users.db import SQLAlchemyUserDatabase
-
-from app.app.db import User, get_user_db
 
 SECRET = "SECRET"
 

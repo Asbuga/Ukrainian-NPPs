@@ -5,7 +5,7 @@ import pandas as pd
 import pytest
 import requests
 
-from src.client import DataGovUAClient
+from notebook.client import DataGovUAClient
 
 
 class TestDataGovUAClient:

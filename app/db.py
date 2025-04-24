@@ -1,11 +1,20 @@
 from collections.abc import AsyncGenerator
+from pathlib import Path
 
+from dotenv import load_dotenv
 from fastapi import Depends
 from fastapi_users.db import SQLAlchemyBaseUserTableUUID, SQLAlchemyUserDatabase
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
 
-DATABASE_URL = "sqlite+aiosqlite:///./test.db"
+dotenv_path = Path(__file__).parent.parent / "config" / "db.env"
+if dotenv_path.exists():
+    load_dotenv(dotenv_path)
+else:
+    raise FileNotFoundError(f"Environment file not found at {dotenv_path}")
+
+
+DATABASE_URL = "postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
 
 
 class Base(DeclarativeBase):

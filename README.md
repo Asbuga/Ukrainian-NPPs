@@ -1,6 +1,6 @@
 # 📊 Ukrainian NPPs: Open Data Analysis
 
-![Python](https://img.shields.io/badge/python-3.10-blue)
+![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Open Data](https://img.shields.io/badge/Open--Data-%F0%9F%93%9C-green)
 ![Nuclear Energy](https://img.shields.io/badge/Nuclear-Energy-yellow)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
