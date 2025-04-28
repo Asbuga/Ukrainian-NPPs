@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from db import User, create_db_and_tables
 from fastapi import Depends, FastAPI
 from schemas import UserCreate, UserRead, UserUpdate
-from users_routers import auth_backend, current_active_user, fastapi_users
+from app.routers.users import auth_backend, current_active_user, fastapi_users
 
 
 @asynccontextmanager
