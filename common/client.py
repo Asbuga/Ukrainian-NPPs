@@ -1,5 +1,4 @@
 from io import BytesIO
-from typing import Dict, Optional
 
 import pandas as pd
 import requests
@@ -24,8 +23,8 @@ class DataGovUAClient:
 
     def __init__(self, dataset_id: str):
         self.dataset_id = dataset_id
-        self.metadata: Optional[Dict] = None
-        self.resources: Optional[list] = None
+        self.metadata: dict | None = None
+        self.resources: list | None = None
 
     def fetch_metadata(self):
         """
@@ -91,6 +90,6 @@ class DataGovUAClient:
             response = requests.get(resource_url)
             response.raise_for_status()
         except requests.RequestException as e:
-            raise RuntimeError(f"Failed to fetch file: {e}")
+            raise RuntimeError(f"Failed to fetch file: {e}") from e
 
         return pd.read_excel(BytesIO(response.content))
