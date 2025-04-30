@@ -24,8 +24,10 @@ uvicorn = {extras = ["standard"], version = "^0.34.2"}
 googletrans = "^4.0.2"
 
 
-[tool.poetry.packages]
-include = "common"
+[tool.poetry]
+packages = [
+    { include = "common" }
+]
 
 
 [tool.poetry.group.dev.dependencies]
