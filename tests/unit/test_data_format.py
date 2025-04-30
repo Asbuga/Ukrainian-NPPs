@@ -1,6 +1,6 @@
 import pytest
 
-from notebook.utils.utils import get_date
+from common.utils import get_date
 
 
 def test_get_date_valid_quarter():
