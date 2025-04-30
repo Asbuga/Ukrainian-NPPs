@@ -32,23 +32,11 @@ nuclear power plants (NPPs) in Ukraine. Using Python, Pandas, and Plotly, we
 analyze environmental indicators across several stations and visualize quarterly  
 changes over time.
 
-The goal is to better understand trends in emission levels and present the data  
-in an accessible, interactive format. All data is retrieved from publicly  
-available government sources.
+### Goal  
 
-### 👨‍💻 My Role
-
-This project was created as a part of my learning path and personal interest in  
-open data and energy infrastructure in Ukraine.  
-My main responsibilities and skills demonstrated here include:
-
-- 🔧 Backend Development: Data parsing, cleaning, transformation using Python  
-& Pandas
-- 🔌 API Design (in progress): RESTful endpoints for accessing processed data
-- 📊 Data Analysis: Exploratory data analysis of NPP metrics, preparing it for  
-visualization
-- 🧱 Project Structure: Organizing code for clarity, scalability, and future  
-API integration
+better understand trends in emission levels and present the data in an  
+accessible, interactive format.  
+All data is retrieved from publicly available government sources.
 
 ### 💡 Why This Project Matters
 
@@ -332,6 +320,20 @@ results.
 All datasets are sourced from data.gov.ua and distributed under the Creative  
 Commons Attribution 4.0 License (CC BY 4.0).  
 Make sure to attribute the original source if you reuse the data.  
+
+### 👨‍💻 My Role
+
+This project was created as a part of my learning path and personal interest in  
+open data and energy infrastructure in Ukraine.  
+My main responsibilities and skills demonstrated here include:
+
+- 🔧 Backend Development: Data parsing, cleaning, transformation using Python  
+& Pandas
+- 🔌 API Design (in progress): RESTful endpoints for accessing processed data
+- 📊 Data Analysis: Exploratory data analysis of NPP metrics, preparing it for  
+visualization
+- 🧱 Project Structure: Organizing code for clarity, scalability, and future  
+API integration
 
 ## 📚 What I Learned / Built Here
 
