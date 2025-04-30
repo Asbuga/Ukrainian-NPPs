@@ -57,7 +57,7 @@ By offering an interface (API and visuals in the future), this tool can help:
 
 ## Examples
 
-![plot-radioactive-release](img\plot-radioactive-release-all-stations.png)
+![plot-radioactive-release](img/plot-radioactive-release-all-stations.png)
 
 ## 📈 Focus  
 
