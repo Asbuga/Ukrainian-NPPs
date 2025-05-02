@@ -1,15 +1,16 @@
 # 📊 Ukrainian NPPs: Open Data Analysis
 
-![Python](https://img.shields.io/badge/python-3.12-blue)
-![Open Data](https://img.shields.io/badge/Open--Data-%F0%9F%93%9C-green)
 ![Nuclear Energy](https://img.shields.io/badge/Nuclear-Energy-yellow)
+![Open Data](https://img.shields.io/badge/Open--Data-%F0%9F%93%9C-green)
+![Python](https://img.shields.io/badge/python-3.12-blue)
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 
 ## Table of Contents
 
 - [About](#about)
 - [Examples](#examples)
-- [Focus](#-focus)
+- [Goal](#-goal)
+- [Why This Project Matters](#-why-this-project-matters)
 - [Technologies | Stack](#-technologies--stack)  
 - [Data Source](#-data-source)
 - [Key Features](#-key-features)
@@ -30,15 +31,20 @@
 This project explores open datasets on radioactive emissions and discharges from  
 nuclear power plants (NPPs) in Ukraine. Using Python, Pandas, and Plotly, we  
 analyze environmental indicators across several stations and visualize quarterly  
-changes over time.
-
-### Goal  
-
-better understand trends in emission levels and present the data in an  
-accessible, interactive format.  
+changes over time.  
 All data is retrieved from publicly available government sources.
 
-### 💡 Why This Project Matters
+## Examples
+
+![plot_index_radioactive_releas_all_stations](docs/img/index_radioactive_releas_all_stations.png)
+![plot_co_60_dump_all_stations](docs/img/co_60_dump_all_stations.png)
+
+## 🎯 Goal  
+
+Better understand trends in emission levels and present the data in an  
+accessible, interactive format.  
+
+## 💡 Why This Project Matters
 
 Ukraine's energy sector, especially nuclear energy, is vital and sensitive.  
 However, public data on its status is often fragmented or not easily accessible.
@@ -55,22 +61,12 @@ By offering an interface (API and visuals in the future), this tool can help:
 - NGOs use this data for transparency reports
 - Developers integrate it into educational or civic tech tools
 
-## Examples
-
-![plot-radioactive-release](img/plot-radioactive-release-all-stations.png)
-
-## 📈 Focus  
-
-Data analysis, API integration, interactive visualizations  
-
 ## 🧪 Technologies | Stack
 
-- **Backend**: Python, FastAPI, Uvicorn, Nginx
-- **Database**: PostgreSQL, SQLAlchemy  
+- **Backend**: Python, Request  
 - **Data Analysis**: Pandas, Plotly  
-- **Development Tools**: Poetry, Docker, Docker Compose, Ruff, Black  
+- **Development Tools**: Poetry, Ruff, Black  
 - **Testing**: Unittest, Pytest  
-- **Environment Management**: python-dotenv  
 - **Notebooks**: Jupyter Notebook  
 
 ## 📂 Data Source
@@ -90,13 +86,9 @@ Data analysis, API integration, interactive visualizations
 ## 🔍 Key Features
 
 - Fetch real-time datasets
-
 - Process Excel reports into structured DataFrames
-
 - Build interactive, filterable visualizations (Plotly)
-
 - Analyze radioactive emissions, discharges, and thresholds
-
 - Modular structure and reusable components
 
 ## 📈 Use Case
@@ -105,13 +97,9 @@ This project allows researchers and developers to explore environmental metrics
 such as:
 
 - Inert radioactive gas emissions (IRG)
-
 - Iodine radionuclides index
-
 - Long-living isotopes
-
 - Cs-137 and Co-60 emissions/discharges
-
 - Quarterly and annual release indexes
 
 ## 🚀 Quickstart
@@ -121,39 +109,27 @@ Follow these steps to set up and run the project:
 ### Prerequisites  
 
 - Python 3.12+
-- Poetry installed ([Poetry Documentation](https://python-poetry.org/docs/))
 
 ### Steps  
 
 1. Clone the repository:
 
-    ```bash
+    ```powershell
     git clone https://github.com/Asbuga/Ukrainian-NPPs.git
     cd Ukrainian-NPPs
     ```
 
-2. Install dependencies and activate the virtual environment:
-
-    ```bash
-    poetry install
-    ```
-
-3. Activate your environment with poetry in Bash:
-
-    ```bash
-    eval $(poetry env activate)
-    ```
-
-    or PowerShell:
+2. Create and activate your environment with pip:
 
     ```powershell
-    Invoke-Expression (poetry env activate)
+    python -m venv .venv
+    .\.venv\Scripts\activate
     ```
 
-4. Run the application to verify everything is working:  
+3. Install dependencies in virtual environment:
 
-    ```bash  
-    poetry run python app/main.py
+    ```powershell
+    pip install -r requirements.txt
     ```
 
 Now you're ready to explore the project!
@@ -163,134 +139,18 @@ Now you're ready to explore the project!
 To analyze data or visualize results, you can use Jupyter Notebook. Follow these  
 steps:
 
-1. Install dependencies and activate the virtual [environment](#-quickstart):
+Run Jupyter Notebook:  
 
-   ```bash
-   poetry install
-   eval $(poetry env activate)
-   ```
-
-2. Run Jupyter Notebook:  
-
-    ```bash
-    jupyter notebook
-    ```
-
-Now you can explore and analyze the data interactively!
-
-## Envirement
-
-The project uses environment variables to configure the application. Below is a  
-list of required variables and their purpose.
-
-### Required Variables
-
-- `DATABASE_URL`: Connection string for the PostgreSQL database.
-- `SECRET_KEY`: Secret key for application security.
-- `DEBUG`: Enable or disable debug mode (`True` or `False`).
-
-### Example `.env` File  
-
-Create a `.env` file in the `config/` directory with the following content:
-
-```env
-DATABASE_URL=postgresql://user:password@localhost:5432/ukrainian_npps
-SECRET_KEY=your_secret_key
-DEBUG=True
+```bash
+jupyter notebook
 ```
 
-**Loading Environment Variables**  
-The application automatically loads environment variables from the .env file  
-using python-dotenv. Ensure the .env file is correctly configured before running  
-the application.
-
-## 🐳 Docker
-
-The project can be easily run in Docker containers. Follow these steps to build  
-and start the application:
-
-### Steps  
-
-1. Build the Docker images:
-
-    ```bash
-    docker compose -f docker/docker-compose.yaml build
-    ```
-
-2. Start the services:
-
-    ```bash
-    docker compose -f docker/docker-compose.yaml up
-    ```
-
-    This will start  the following services:
-
-    - **PostgreSQL**: The database service
-    - **FastAPI Application**: The backend application
-    - **Nginx**: The reverse proxy server (if configured)
-
-3. Stop the services: To stop and remove the containers, run:
-
-    ```bash
-    docker compose -f docker/docker-compose.yaml down
-    ```
-
-4. View logs: To view logs for a specific container, use:
-
-    ```bash
-    docker logs <container_name>
-    ```
-
-**Notes**  
-Ensure Docker and Docker Compose are installed on your system.
-The docker-compose.yaml file is located in the docker directory.
-Environment variables for the database and application are configured in the  
-config directory.
-Now you can run the project in an isolated Docker environment!
+Now you can explore and analyze the data interactively!
 
 ## 🧠 Project Structure
 
 ```bash
-.
-├── .github/                     # GitHub Actions configuration for CI/CD
-│   └── workflows/
-│       └── ci.yml               # Script for automating tests and checks
-│
-├── app/                         # Main application code
-│   ├── main.py                  # Entry point for running the application
-│   └── core/                    # Core modules of the application
-│       ├── app.py               # FastAPI configuration
-│       ├── db.py                # Database logic
-│       ├── schemas.py           # Data schemas (Pydantic)
-│       ├── users.py             # User-related logic
-│
-├── config/                      # Configuration files
-│   ├── .env                     # Environment variables for the application
-│   └── db.env                   # Environment variables for the database
-│
-├── docker/                      # Docker files for containerization
-│   ├── docker-compose.yaml      # Docker Compose configuration
-│   └── Dockerfile               # Instructions for building the Docker image
-│
-├── notebook/                    # Jupyter Notebook for data analysis
-│   ├── research.ipynb           # Main notebook for research
-│
-├── src/                         # Auxiliary modules
-│   ├── client.py                # API client for external services
-│   ├── utils.py                 # Utility functions
-│
-├── tests/                       # Tests for the application
-│   ├── integration/             # Integration tests
-│       ├── test_client.py       # Tests for the API client
-│       ├── test_data_format.py  # Tests for data formatting
-│   └── unit/                    # Unit tests
-│
-├── .gitignore                   # Files and folders ignored by Git
-├── .pre-commit-config.yaml      # Pre-commit hooks configuration
-├── poetry.lock                  # Project dependencies (generated by Poetry)
-├── pyproject.toml               # Project configuration
-├── LICENSE                      # Project license
-└── README.md                    # Project documentation
+
 ```
 
 ## 🧪 Testing
