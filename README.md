@@ -9,7 +9,7 @@
 
 - [About](#about)
 - [Examples](#examples)
-- [Goal](#-goal)
+- [Goal](#goal)
 - [Why This Project Matters](#-why-this-project-matters)
 - [Technologies | Stack](#-technologies--stack)  
 - [Data Source](#-data-source)
@@ -17,11 +17,10 @@
 - [Use Case](#-use-case)
 - [Quickstart](#-quickstart)
 - [Run the notebook](#-run-the-notebook)
-- [Envirement](#envirement)
-- [Docker](#-docker)
 - [Project Structure](#-project-structure)
 - [Testing](#-testing)
 - [License & Data Usage](#️-license--data-usage)
+- [My role](#-my-role)
 - [What I Learned / Built Here](#-what-i-learned--built-here)
 - [Author](#-author)
 - [Development Plans](#️-development-plans)
@@ -109,6 +108,7 @@ Follow these steps to set up and run the project:
 ### Prerequisites  
 
 - Python 3.12+
+- [Poetry](https://python-poetry.org/docs/#installing-with-the-official-installer)
 
 ### Steps  
 
@@ -119,17 +119,10 @@ Follow these steps to set up and run the project:
     cd Ukrainian-NPPs
     ```
 
-2. Create and activate your environment with pip:
+2. Create and activate your environment with Poetry:
 
     ```powershell
-    python -m venv .venv
-    .\.venv\Scripts\activate
-    ```
-
-3. Install dependencies in virtual environment:
-
-    ```powershell
-    pip install -r requirements.txt
+    poetry install
     ```
 
 Now you're ready to explore the project!
@@ -141,8 +134,8 @@ steps:
 
 Run Jupyter Notebook:  
 
-```bash
-jupyter notebook
+```powershell
+poetry run jupyter notebook
 ```
 
 Now you can explore and analyze the data interactively!
@@ -150,7 +143,34 @@ Now you can explore and analyze the data interactively!
 ## 🧠 Project Structure
 
 ```bash
-
+│
+├───.github                      # GitHub-specific configuration folder
+│   └───workflows
+│           ci.yml               # GitHub Actions CI workflow (e.g., for testing, linting)
+├───common                       # Core Python modules for shared logic
+│   │   client.py                # Likely contains client logic
+│   │   translate_text.py        # Module for text translation functionality
+│   │   utils.py                 # Utility/helper functions
+│
+├───docs                         # Project documentation
+│   └───img                      # Images used in READMI.md
+│           co_60_dump_all_stations.png
+│           index_radioactive_releas_all_stations.png
+│
+├───notebook                     # Jupyter notebooks for research and prototyping
+│       research.ipynb           # Analytical  notebook
+│
+├───tests                        # Test suite for the project
+│   └───unit                     
+│           test_client.py      # Tests for the `client.py` module
+│           test_data_format.py # Tests for data formatting logic
+│           test_translat       # Tests for translate text.
+│
+│   .pre-commit-config.yaml      # Configuration for pre-commit hooks
+│   LICENSE                      
+│   poetry.lock                  # Locked versions of dependencies (used by Poetry)
+│   pyproject.toml               # Project configuration and dependency definitions (Poetry)
+│   README.md                    # Project overview and instructions
 ```
 
 ## 🧪 Testing
@@ -187,9 +207,8 @@ This project was created as a part of my learning path and personal interest in
 open data and energy infrastructure in Ukraine.  
 My main responsibilities and skills demonstrated here include:
 
-- 🔧 Backend Development: Data parsing, cleaning, transformation using Python  
+- 🔧 Data Processing: Data parsing, cleaning, transformation using Python  
 & Pandas
-- 🔌 API Design (in progress): RESTful endpoints for accessing processed data
 - 📊 Data Analysis: Exploratory data analysis of NPP metrics, preparing it for  
 visualization
 - 🧱 Project Structure: Organizing code for clarity, scalability, and future  
@@ -199,7 +218,6 @@ API integration
 
 - Processing open government data: collection, cleaning, transformation
 - Working with tabular sources (CSV, XLSX) using Pandas
-- Developing a basic architecture for a REST API (FastAPI, in development)
 - Building graphs/visualizations using Plotly
 - Organizing the project structure for scaling
 

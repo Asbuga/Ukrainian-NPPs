@@ -15,12 +15,6 @@ pandas = ">=2.2.3,<3.0.0"
 openpyxl = ">=3.1.5,<4.0.0"
 plotly = ">=6.0.1,<7.0.0"
 notebook = ">=7.4.0,<8.0.0"
-fastapi-users = {extras = ["sqlalchemy"], version = "^14.0.1"}
-fastapi = {extras = ["standard"], version = "^0.115.12"}
-sqlalchemy = "^2.0.40"
-python-dotenv = "^1.1.0"
-asyncpg = "^0.30.0"
-uvicorn = {extras = ["standard"], version = "^0.34.2"}
 googletrans = "^4.0.2"
 
 
@@ -35,7 +29,6 @@ pytest = ">=8.3.5,<9.0.0"
 ruff = "^0.11.6"
 black = {extras = ["jupyter"], version = "^25.1.0"}
 pre-commit = "^4.2.0"
-aiosqlite = "^0.21.0"
 pytest-asyncio = "^0.26.0"
 
 
