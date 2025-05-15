@@ -1,0 +1,53 @@
+[project]
+name = "ukrainian-npps"
+version = "0.1.0"
+description = "Analysis and interactive visualization of radioactive emissions from Ukrainian nuclear power plants using open government data."
+authors = [
+    {name = "Andrii Buha",email = "bugandreij@gmail.com"},
+]
+readme = "README.md"
+requires-python = ">=3.12"
+
+
+[tool.poetry.dependencies]
+requests = ">=2.32.3,<3.0.0"
+pandas = ">=2.2.3,<3.0.0"
+openpyxl = ">=3.1.5,<4.0.0"
+plotly = ">=6.0.1,<7.0.0"
+notebook = ">=7.4.0,<8.0.0"
+googletrans = "^4.0.2"
+
+
+[tool.poetry]
+packages = [
+    { include = "common" }
+]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.3.5,<9.0.0"
+ruff = "^0.11.6"
+black = {extras = ["jupyter"], version = "^25.1.0"}
+pre-commit = "^4.2.0"
+pytest-asyncio = "^0.26.0"
+
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+lint.select = ["E", "F", "B", "I", "UP"]
+lint.ignore = ["E501"]
+
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.params.Depends", "fastapi.Query", "fastapi.params.Query"]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
